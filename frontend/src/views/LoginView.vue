@@ -2,6 +2,9 @@
 import { ref } from 'vue'
 const email = ref('')
 const password = ref('')
+async function onSubmit(){
+  console.log('onSubmit()...')
+}
 </script>
 <template>
   <div>
@@ -10,7 +13,7 @@ const password = ref('')
     </v-row>
     <v-row justify="center">
       <v-sheet>
-        <v-card class="mx-auto px-6 py-8" width="500">
+        <v-card class="mx-auto px-6 py-8" width="500px">
           <v-card-title class="text-center font-weight-bold">로그인</v-card-title>
           <v-form v-model="form" @submit.prevent="onSubmit">
             <v-text-field
@@ -19,6 +22,7 @@ const password = ref('')
               class="mb-2"
               clearable
               label="Email"
+              placeholder="Enter your Email"
             ></v-text-field>
 
             <v-text-field
