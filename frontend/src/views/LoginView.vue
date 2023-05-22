@@ -25,7 +25,8 @@ async function onSubmit() {
                 label="Email"
                 placeholder="Enter your Email"
                 variant="underlined"
-              ></v-text-field>
+              >
+              </v-text-field>
 
               <v-text-field
                 v-model="password"
