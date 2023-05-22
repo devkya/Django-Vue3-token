@@ -13,8 +13,6 @@ class RegisterView(APIView):
     try:
       # payload data
       data = request.data
-      print(data)
-      email = data['email']
       first_name = data['first_name']
       last_name = data['last_name']
       username = data['username']
@@ -24,9 +22,8 @@ class RegisterView(APIView):
       # validation => 왜 여기서 처리하려고 하지?
       if password == re_password:
         if len(password)>= 8: 
-          if not User.objects.filter(email=email).exists():
+          if not User.objects.filter(username=username).exists():
             user = User.objects.create_user(
-              email=email,
               first_name = first_name,
               last_name = last_name,
               username = username,
