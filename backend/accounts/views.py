@@ -42,13 +42,14 @@ class RegisterView(APIView):
       return Response({'error' : '무엇인가 잘못 되었음'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
             
       
-class LoginView(APIView):
+class UserAPIView(APIView):
   def get(self, request):
     try:
       user = request.user
       user = UserSerializer(user)
-      
       return Response({'user':user.data}, status=status.HTTP_200_OK)
       
     except:
       return Response({'error' : '무엇인가 잘못 되었음'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+    

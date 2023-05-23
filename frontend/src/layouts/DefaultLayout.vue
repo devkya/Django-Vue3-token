@@ -1,10 +1,10 @@
 <script setup>
-import { computed, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { computed, ref } from "vue";
+import { useRoute } from "vue-router";
 
-const tab = ref(null)
-const routeName = computed(() => useRoute().name)
-console.log(routeName)
+const tab = ref(null);
+const routeName = computed(() => useRoute().name);
+console.log(routeName);
 </script>
 
 <template>
@@ -32,7 +32,9 @@ console.log(routeName)
       <div class="appBar pa-5 bg-grey-lighten-3 d-flex">
         <div class="align-self-center">
           <h4 class="text-h4 font-weight-bold ma-3">{{ routeName }} Page</h4>
-          <h5 class="font-weight-regular ma-3">JWT Tutorial with Http Only Cookies</h5>
+          <h5 class="font-weight-regular ma-3">
+            JWT Tutorial with Http Only Cookies
+          </h5>
         </div>
       </div>
       <div>
