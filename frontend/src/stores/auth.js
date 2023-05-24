@@ -33,7 +33,7 @@ export const useAuthStore = defineStore("auth", {
     async loginUser(data) {
       try {
         const res = await axios.post(
-          `${import.meta.env.VITE_API_URL}/api/token/`,
+          `${import.meta.env.VITE_API_URL}/api/accounts/login/`,
           data,
           {
             headers: {
@@ -43,13 +43,13 @@ export const useAuthStore = defineStore("auth", {
         );
         this.isAuthenticated = true;
 
-        const { cookies } = useCookies();
-        cookies.set("access", res.data.access, "1d", {
-          path: "/api",
-          httponly: true,
-          secure: false,
-        });
-
+        // const { cookies } = useCookies();
+        // cookies.set("access", res.data.access, "1d", {
+        //   path: "/api",
+        //   httponly: true,
+        //   secure: false,
+        // });
+        console.log(res);
         return res.data;
       } catch (err) {
         console.log(err);

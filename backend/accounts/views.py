@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework import permissions, status
 from django.contrib.auth.models import User
 from .serializers import UserSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 # Create your views here.
 class RegisterView(APIView):
@@ -51,5 +52,19 @@ class UserAPIView(APIView):
       
     except:
       return Response({'error' : '무엇인가 잘못 되었음'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    
+  
+  
+class LoginObtainTokenView(TokenObtainPairView):
+   def post(self, request, *args, **kwargs):
+        response = super().post(request, *args, **kwargs)
+
+        # Get the token from the response
+        access = response.data['access']
+        refresh = response.data['refresh']
+        # Set the token as a cookie in the response
+        response.set_cookie('access', access, httponly=True, path='/api/')
+        response.set_cookie('refresh', refresh, httponly=True, path='/api/')
+
+        # Return the response
+        return response
     
