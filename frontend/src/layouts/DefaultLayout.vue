@@ -8,7 +8,7 @@ console.log(routeName);
 </script>
 
 <template>
-  <div>
+  <v-app>
     <v-app-bar elevation="0" app>
       <v-row align="center">
         <v-col cols="auto">
@@ -41,7 +41,7 @@ console.log(routeName);
         <router-view />
       </div>
     </v-container>
-  </div>
+  </v-app>
 </template>
 
 <style scoped>
